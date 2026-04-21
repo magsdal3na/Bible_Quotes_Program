@@ -10,37 +10,41 @@ using namespace std;
 
 // sets up basic constructor
 Menu::Menu() {
-
+    string line = "";
 }
 
 // user requests rand quote
 int Menu::option1() {
-    ifstream inFS;
-    ifstream file("bibleverses.txt");
+    ifstream inFS("bibleverses.txt");
     string line;
     vector<BibleVerse> library;
     
     try {
         // attempts to open .txt file
-        inFS.open("bibleverses.txt");
 
         if (!inFS.is_open()) {
+            cout << "Failed to open file." << endl;
             throw runtime_error("File System Error: Unable to locate or open the input data file.");
         }
 
-        while (getline(file, line)) {
+        while (getline(inFS, line)) {
+            if (line.empty()) continue; // skips empty lines
             stringstream ss(line);
             string bookName, verseNumber, verseContent;
 
-            if (getline(ss, bookName, '|') && getline(ss, verseNumber) && getline(ss, verseContent)) {
-                library.push_back({bookName, verseNumber, verseContent});
+            if (getline(ss, bookName, '|')) {
+                if (getline(ss, verseNumber, '|')) {
+                if (getline(ss, verseContent)) {
+                    library.push_back({bookName, verseNumber, verseContent});
+                    }
+                }
             }
         }
 
         // attempting random quote output
         if (library.empty()) {
             cout << "Library is empty! Load some verses and try again." << endl;
-            return;
+            return 1;
         }
 
         // initializing random number generator
@@ -56,7 +60,7 @@ int Menu::option1() {
         // access struct at that index and print
         BibleVerse selected = library[randomIndex];
         cout << "Verse of the Day: " << endl;
-        cout << selected.book << " " << selected.verse << " " << selected.text << endl;
+        cout << selected.book << " " << selected.verse << endl << selected.text << endl;
     }
 
     catch (const runtime_error& e) {

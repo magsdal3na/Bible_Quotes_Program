@@ -7,7 +7,8 @@
 using namespace std;
 
 int main() {
-    
+    Menu myVerses;
+    myVerses.option1();
 
     return 0;
 }
