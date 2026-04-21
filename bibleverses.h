@@ -2,6 +2,14 @@
 #define BIBLE_VERSES_H_
 
 #include <string> // might not need
+#include <vector>
+
+// defining struct accessible by all files
+struct BibleVerse {
+    std::string book;
+    std::string verse;
+    std::string text;
+};
 
 class Menu {
     public:
