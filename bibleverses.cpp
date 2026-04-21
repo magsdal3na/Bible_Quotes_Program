@@ -4,6 +4,7 @@
 #include <fstream>
 #include <cctype> // to use tolower
 #include <vector>
+#include <random>
 #include "bibleverses.h"
 using namespace std;
 
@@ -35,6 +36,27 @@ int Menu::option1() {
                 library.push_back({bookName, verseNumber, verseContent});
             }
         }
+
+        // attempting random quote output
+        if (library.empty()) {
+            cout << "Library is empty! Load some verses and try again." << endl;
+            return;
+        }
+
+        // initializing random number generator
+        random_device rd;
+        mt19937 gen(rd());
+
+        // defining range of vector
+        uniform_int_distribution<> distr(0, library.size() -1);
+
+        // picks random index
+        int randomIndex = distr(gen);
+
+        // access struct at that index and print
+        BibleVerse selected = library[randomIndex];
+        cout << "Verse of the Day: " << endl;
+        cout << selected.book << " " << selected.verse << " " << selected.text << endl;
     }
 
     catch (const runtime_error& e) {
