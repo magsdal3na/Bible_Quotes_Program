@@ -3,7 +3,7 @@
 #include <string>
 #include <fstream>
 #include <cctype> // to use tolower
-#include "biblequotes.h"
+#include "bibleverses.h"
 using namespace std;
 
 // sets up basic constructor

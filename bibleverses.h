@@ -1,5 +1,5 @@
-#ifindef BIBLE_QUOTES_H_
-#define BIBLE_QUOTES_H_
+#ifndef BIBLE_VERSES_H_
+#define BIBLE_VERSES_H_
 
 #include <string> // might not need
 
@@ -17,4 +17,4 @@ class Menu {
 
 };
 
-#endif // BIBLE_QUOTES_H_
+#endif // BIBLE_VERSES_H_
