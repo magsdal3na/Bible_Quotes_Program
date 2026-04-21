@@ -18,6 +18,7 @@ int main() {
     while (selection != 4) {
         while (selection == 1) {
             myVerses.option1();
+            cout << endl;
             cout << "Enter 1 - 3 to continue. Enter 4 to quit: " << endl;
             cin >> selection;
         }

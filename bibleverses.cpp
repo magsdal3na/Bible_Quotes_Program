@@ -56,7 +56,7 @@ int Menu::option1() {
         // access struct at that index and print
         BibleVerse selected = library[randomIndex];
         cout << endl;
-        cout << "Verse of the Day: " << endl;
+        cout << "Random Verse: " << endl;
         cout << setfill('-') << setw(15) << " " << endl;
         cout << setfill(' ') << selected.book << " " << selected.verse << endl << selected.text << endl;
     }
@@ -70,7 +70,7 @@ int Menu::option1() {
 
 // user requests rand quote from specific book
 int Menu::option2() {
-
+    
     return 0;
 }
 
