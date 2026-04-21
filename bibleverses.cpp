@@ -32,14 +32,10 @@ int Menu::option1() {
             stringstream ss(line);
             string bookName, verseNumber, verseContent;
 
-            if (getline(ss, bookName, '|')) {
-                if (getline(ss, verseNumber, '|')) {
-                if (getline(ss, verseContent)) {
+            if (getline(ss, bookName, '|') && getline(ss, verseNumber, '|') && getline(ss, verseContent)) {
                     library.push_back({bookName, verseNumber, verseContent});
                     }
                 }
-            }
-        }
 
         // attempting random quote output
         if (library.empty()) {
@@ -59,8 +55,10 @@ int Menu::option1() {
 
         // access struct at that index and print
         BibleVerse selected = library[randomIndex];
+        cout << endl;
         cout << "Verse of the Day: " << endl;
-        cout << selected.book << " " << selected.verse << endl << selected.text << endl;
+        cout << setfill('-') << setw(15) << " " << endl;
+        cout << setfill(' ') << selected.book << " " << selected.verse << endl << selected.text << endl;
     }
 
     catch (const runtime_error& e) {
