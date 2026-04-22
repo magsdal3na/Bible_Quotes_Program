@@ -21,12 +21,21 @@ int main() {
             cout << endl;
             cout << "Enter 1 - 3 to continue. Enter 4 to quit: " << endl;
             cin >> selection;
+            cout << endl;
         }
         while (selection == 2) {
             myVerses.option2();
             cout << endl;
             cout << "Enter 1 - 3 to continue. Enter 4 to quit: " << endl;
             cin >> selection;
+            cout << endl;
+        }
+        while (selection == 3) {
+            myVerses.option3();
+            cout << endl;
+            cout << "Enter 1 - 3 to continue. Enter 4 to quit: " << endl;
+            cin >> selection;
+            cout << endl;
         }
     }
     return 0;
