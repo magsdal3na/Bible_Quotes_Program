@@ -23,7 +23,9 @@ int main() {
             cin >> selection;
         }
         while (selection == 2) {
-            cout << "placeholder text" << endl;
+            myVerses.option2();
+            cout << endl;
+            cout << "Enter 1 - 3 to continue. Enter 4 to quit: " << endl;
             cin >> selection;
         }
     }
